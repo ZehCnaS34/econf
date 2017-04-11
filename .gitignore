@@ -4,3 +4,4 @@ elpa
 *.eld
 *.elc
 .cask
+/diary
