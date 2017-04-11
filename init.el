@@ -154,3 +154,9 @@
       (helm-projectile-on)
       (setenv "RUST_SRC_PATH" "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/")
       ))
+
+;; fonts
+(catch 'nooo ; i'm not sure if this would work catch if the
+  ; use does not have source code pro installed
+  (add-to-list 'default-frame-alist '(font . "Source Code Pro")))
+
