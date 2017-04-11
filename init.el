@@ -106,7 +106,6 @@
     ))
 
 
-
 ;; awesome project management
 (ao-install-pkg 'projectile)
 (use-package projectile
@@ -138,3 +137,20 @@
     (add-hook 'after-init-hook 'global-company-mode)
     (add-to-list 'company-backends 'company-racer)
     ))
+
+(ao-install-pkg 'exec-path-from-shell)
+(use-package exec-path-from-shell
+  :config
+  (progn
+    (exec-path-from-shell-initialize)))
+
+
+;; I like helm. Not sure if omar does
+(if (equal "alex" (getenv "USER"))
+    (progn
+      (ao-install-pkg 'helm)
+      (ao-install-pkg 'helm-projectile)
+      (setq projectile-completion-system 'helm)
+      (helm-projectile-on)
+      (setenv "RUST_SRC_PATH" "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/")
+      ))
