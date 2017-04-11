@@ -93,6 +93,7 @@
   (progn
     ;; magit is awesome; Omar, you should use this.
     (define-key global-map (kbd "M-g s") 'magit-status)
+    (define-key global-map (kbd "<XF86Launch1>") 'magit-status)
     ))
 (use-package git-gutter
   :config
