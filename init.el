@@ -133,6 +133,23 @@
 	      'toml-mode
 	      'racer))
 
+;; html stuff
+(ao-install-pkg 'web-mode)
+(use-package web-mode
+  :config
+  (progn
+    ;; `web-mode' provides a better html programming environment.
+    ;; These lines make web-mode handle files with the file extensions
+    ;; located in the string tags
+    (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+    (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+    ))
+
 
 ;; autocomplete
 (mapcar #'ao-install-pkg
@@ -169,3 +186,6 @@
 
 
 (ao-install-pkg 'markdown-mode)
+
+
+;; setting up my mail client
