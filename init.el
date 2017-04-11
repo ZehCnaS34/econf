@@ -126,3 +126,15 @@
 	(list 'rust-mode
 	      'toml-mode
 	      'racer))
+
+
+;; autocomplete
+(mapcar #'ao-install-pkg
+	(list 'company
+	      'company-racer))
+(use-package company
+  :config
+  (progn
+    (add-hook 'after-init-hook 'global-company-mode)
+    (add-to-list 'company-backends 'company-racer)
+    ))
