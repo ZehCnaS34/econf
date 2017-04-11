@@ -28,7 +28,7 @@
 ;; menation for.
 
 ;; I want to change the default location of the
-;; auto-generated custome file
+;; auto-generated custom file
 (setq custom-file "~/.emacs.d/custom.el")
 
 ;; lets change the locations of the annoying temp files
@@ -87,5 +87,24 @@
 (use-package magit
   :config
   (progn
+    ;; magit is awesome; Omar, you should use this.
     (define-key global-map (kbd "M-g s") 'magit-status)
     ))
+
+
+(ao-install-pkg 'undo-tree) ; i actually use this
+
+(use-package undo-tree
+  :config
+  (progn
+    (global-undo-tree-mode 1) ; the default keymap for this is. `C-x u'
+    ))
+
+
+
+;; awesome project management
+(ao-install-pkg 'projectile)
+(use-package projectile
+  :config
+  (progn
+    (projectile-mode 1)))
