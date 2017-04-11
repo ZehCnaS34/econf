@@ -1,4 +1,4 @@
-;; LETS START HERE
+;; LETS START HERE!!!!!
 
 ;; Solidify knowledge of emacs
 
@@ -66,8 +66,8 @@
   :config
   (progn
     (add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
-    (add-hook 'python-mode-hook 'rainbow-delimiters-mode)
-    (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+    (add-hook 'python-mode-hook 'rainbow-delimiters-mode) ; for capstone
+    (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode) ; for alex awesome
     ))
 
 
@@ -83,12 +83,17 @@
 ;; alright, I like using git from emacs... so lets add some magit
 (ao-install-pkg 'magit) ; ah much better with one line... still think
 					; there is a better way tho...
-
+(ao-install-pkg 'git-gutter)
 (use-package magit
   :config
   (progn
     ;; magit is awesome; Omar, you should use this.
     (define-key global-map (kbd "M-g s") 'magit-status)
+    ))
+(use-package git-gutter
+  :config
+  (progn
+    (global-git-gutter-mode 1)
     ))
 
 
@@ -108,3 +113,16 @@
   :config
   (progn
     (projectile-mode 1)))
+
+
+;; clojure :)
+(mapcar #'ao-install-pkg
+	(list 'clojure-mode
+	      'cider))
+
+
+;; rust
+(mapcar #'ao-install-pkg
+	(list 'rust-mode
+	      'toml-mode
+	      'racer))
