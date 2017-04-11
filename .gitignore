@@ -2,9 +2,5 @@ elpa
 *~
 *.data
 *.eld
-# Compiled
 *.elc
-
-# Packaging
 .cask
-
