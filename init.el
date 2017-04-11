@@ -56,6 +56,10 @@
     ;; TO THE DIFFERENT LANGUAGES WE WOULD LIKE TO USE IT FOR.
     (add-hook 'python-mode-hook #'smartparens-mode)
     (add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
+    (add-hook 'julia-mode-hook #'smartparens-mode)
+    (add-hook 'rust-mode-hook #'smartparens-mode)
+    (add-hook 'clojure-mode-hook #'smartparens-mode)
+    (add-hook 'javascript-mode-hook #'smartparens-mode)
     ))
 
 
@@ -113,12 +117,15 @@
   (progn
     (projectile-mode 1)))
 
+;;;; LANGUAGES ----------------------------------------------------------------
 
 ;; clojure :)
 (mapcar #'ao-install-pkg
 	(list 'clojure-mode
 	      'cider))
 
+;; julia
+(ao-install-pkg 'julia-mode)
 
 ;; rust
 (mapcar #'ao-install-pkg
@@ -160,3 +167,5 @@
   ; use does not have source code pro installed
   (add-to-list 'default-frame-alist '(font . "Source Code Pro")))
 
+
+(ao-install-pkg 'markdown-mode)
