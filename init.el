@@ -177,6 +177,12 @@
       (setq projectile-completion-system 'helm)
       (helm-projectile-on)
       (setenv "RUST_SRC_PATH" "~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/")
+
+      (require 'helm-config)
+      (global-set-key (kbd "M-x") #'helm-M-x)
+      (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+      (global-set-key (kbd "C-x C-f") #'helm-find-files)
+      (helm-mode 1)
       ))
 
 ;; fonts
