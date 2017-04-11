@@ -1,0 +1,3 @@
+* Emacs Configuration
+
+This is written in Org mode (which is also something I find very useful)
