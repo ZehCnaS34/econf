@@ -1,3 +1,11 @@
 * Emacs Configuration
 
 This is written in Org mode (which is also something I find very useful)
+
+** Install
+
+#+BEGIN_SRC bash
+
+$ mv ~/.emacs.d ~/.emacs.d.back && git clone https://github.com/ZehCnaS34/econf ~/.emacs.d
+
+#_END_SRC

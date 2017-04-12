@@ -37,6 +37,8 @@
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
+(defun is-alex ()
+  (equal "alex" (getenv "USER")))
 
 ;; this package is used for nicer pluggin loading
 (if (not (package-installed-p 'use-package))
@@ -120,13 +122,25 @@
 
 ;;;; LANGUAGES ----------------------------------------------------------------
 
+;; elixir
+(if (is-alex)
+    (progn
+      (ao-install-pkg 'elixir-mode)
+      (ao-install-pkg 'alchemist)
+      ))
+
+
 ;; clojure :)
+(if (is-alex)
 (mapcar #'ao-install-pkg
 	(list 'clojure-mode
 	      'cider))
+    )
 
 ;; julia
-(ao-install-pkg 'julia-mode)
+(if (is-alex)
+    (ao-install-pkg 'julia-mode)
+    )
 
 ;; rust
 (mapcar #'ao-install-pkg
