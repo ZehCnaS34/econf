@@ -62,6 +62,7 @@
     (add-hook 'rust-mode-hook #'smartparens-mode)
     (add-hook 'clojure-mode-hook #'smartparens-mode)
     (add-hook 'javascript-mode-hook #'smartparens-mode)
+    (add-hook 'c-mode-hook #'smartparens-mode)
     ))
 
 
@@ -198,6 +199,8 @@
       (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
       (global-set-key (kbd "C-x C-f") #'helm-find-files)
       (helm-mode 1)
+
+      (tool-bar-mode -1)
       ))
 
 ;; fonts
