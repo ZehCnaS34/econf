@@ -50,10 +50,11 @@
     (package-install 'smartparens))
 
 ;; setting up smart parens
-(require 'smartparens-config)
+
 (use-package smartparens
   :config
   (progn
+    (require 'smartparens-config)
     ;; THIS IS WHERE WE ADD THE SMART PAREN FUNCTIONALITY
     ;; TO THE DIFFERENT LANGUAGES WE WOULD LIKE TO USE IT FOR.
     (add-hook 'python-mode-hook #'smartparens-mode)
@@ -62,6 +63,7 @@
     (add-hook 'rust-mode-hook #'smartparens-mode)
     (add-hook 'clojure-mode-hook #'smartparens-mode)
     (add-hook 'javascript-mode-hook #'smartparens-mode)
+    (add-hook 'rjsx-mode-hook #'smartparens-mode)
     (add-hook 'c-mode-hook #'smartparens-mode)
     ))
 
@@ -212,4 +214,43 @@
 (ao-install-pkg 'markdown-mode)
 
 
-;; setting up my mail client
+;; modal editing is good.
+(ao-install-pkg 'evil)
+(ao-install-pkg 'evil-leader)
+(use-package evil
+  :config
+  (progn
+    (evil-mode 1)
+
+    (use-package evil-leader
+      :config
+      (progn
+	(global-evil-leader-mode)
+	(evil-leader/set-leader "<SPC>")
+	(evil-leader/set-key
+	 "ff" 'helm-find-files
+	 "qq" 'save-buffers-kill-terminal
+	 "<SPC>" 'helm-M-x
+	 "pp" 'projectile-switch-project
+	 "pf" 'projectile-find-file
+	 "pd" 'projectile-find-dir
+	 "gs" 'magit-status
+
+	 ;; window motion
+	 "wk" 'windmove-up
+	 "wj" 'windmove-down
+	 "wh" 'windmove-left
+	 "wl" 'windmove-right
+	 "ws" 'split-window-below
+	 "wv" 'split-window-right
+	 "wd" 'delete-window
+	 "wm" 'delete-other-windows
+	 )))))
+
+(ao-install-pkg 'js2-mode)
+(ao-install-pkg 'rjsx-mode)
+(use-package rjsx-mode
+  :commands (rjsx-mode)
+  :config
+  (progn
+    (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode))))
